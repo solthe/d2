@@ -42,6 +42,6 @@ clearButton.innerHTML = "Clear";
 document.body.append(clearButton);
 
 clearButton.addEventListener("click", () => {
-  // Clears the entire canvas area
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.clearRect(5, 5, 5, 5);
 });
