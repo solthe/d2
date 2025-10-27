@@ -1,4 +1,3 @@
-// import exampleIconUrl from "./noun-paperclip-7598668-00449F.png";
 import "./style.css";
 
 document.body.innerHTML = `
@@ -6,25 +5,12 @@ document.body.innerHTML = `
   <canvas id = "canvas" width= "256" height = "256"></canvas>
 `;
 
-<<<<<<< HEAD
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
+const canvas = document.getElementById("canvas") as HTMLCanvasElement;
+const ctx = canvas.getContext("2d")!; // Asserting canvas type and non-null context
 
 ctx.strokeStyle = "black";
 ctx.lineWidth = 5;
 ctx.strokeRect(0, 0, canvas.width, canvas.height);
-=======
-const canvas = document.getElementById("canvas") as HTMLCanvasElement;
-const ctx = canvas.getContext("2d")!; // <-- Non-Null Assertion Operator '!'
-
-if (ctx) {
-  ctx.strokeStyle = "black";
-  ctx.lineWidth = 5;
-  ctx.strokeRect(0, 0, canvas.width, canvas.height);
-} else {
-  // Optionally handle the error case if the context isn't available
-  console.error("Could not get 2D rendering context.");
-}
 
 const cursor = { active: false, x: 0, y: 0 };
 
@@ -45,6 +31,17 @@ canvas.addEventListener("mousemove", (e: MouseEvent) => {
   }
 });
 
-canvas.addEventListener("mouseup", (e) => {
+// 4. Single Mouse Up Listener
+canvas.addEventListener("mouseup", () => {
   cursor.active = false;
+});
+
+// 5. Clear Button Logic (Corrected clearRect arguments)
+const clearButton = document.createElement("button");
+clearButton.innerHTML = "Clear";
+document.body.append(clearButton);
+
+clearButton.addEventListener("click", () => {
+  // Clears the entire canvas area
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 });
