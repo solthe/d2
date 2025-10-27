@@ -23,6 +23,7 @@ canvas.addEventListener("mousedown", (e: MouseEvent) => {
 canvas.addEventListener("mousemove", (e: MouseEvent) => {
   if (cursor.active) {
     ctx.beginPath();
+    k;
     ctx.moveTo(cursor.x, cursor.y);
     ctx.lineTo(e.offsetX, e.offsetY);
     ctx.stroke();
@@ -45,3 +46,4 @@ clearButton.addEventListener("click", () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.clearRect(5, 5, 5, 5);
 });
+//
